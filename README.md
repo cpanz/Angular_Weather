@@ -15,7 +15,7 @@ $ npm install
 
 ### Setting up API key:
 
-Replace "YOUR_API_KEY" in the config.json file in under '/client' directory with your own API key from [openweathermap](openweathermap.org)
+Replace "YOUR_API_KEY" in the config.json file in under '/client' directory with your own API key from [openweathermap](http://openweathermap.org/)
 ```javascript
 {
 	"API_KEY": "YOUR_API_KEY"
