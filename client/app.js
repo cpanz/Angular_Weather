@@ -3,7 +3,7 @@
 
     angular
         .module('weatherApp', ['ngRoute'])
-        .config(config);
+        .config(['$routeProvider'], config);
 
     function config($routeProvider) {
         $routeProvider
