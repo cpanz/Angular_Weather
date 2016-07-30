@@ -25,4 +25,7 @@ Replace "YOUR_API_KEY" in the config.json file in under '/client' directory with
 Start the app by
 ```sh
 $ npm start
+Go to http://localhost:3000
 ```
+
+
