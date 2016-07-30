@@ -5,28 +5,18 @@
         .module('weatherApp')
         .controller('ForecastCtrl', ForecastCtrl)
 
-        ForecastCtrl.$inject = ['$scope', '$http', '$routeParams','city', 'config'];
+        ForecastCtrl.$inject = ['$scope', '$http', '$routeParams','city', 'config', 'forecast'];
 
-        function ForecastCtrl($scope, $http, $routeParams, city, config) {
+        function ForecastCtrl($scope, $http, $routeParams, city, config, forecast) {
             var vm = this;
             
             $scope.city = city.city;
             $scope.days = $routeParams.days || '2';
             config.fetch().then(function(data) {
-                $scope.API_KEY = data.API_KEY;
-                $http
-                    .get('http://api.openweathermap.org/data/2.5/forecast/daily', {
-                        params: {
-                            q: $scope.city,
-                            cnt: $scope.days,
-                            appid: $scope.API_KEY
-                        }
-                    })
-                    .then(function success(res) {
-                        $scope.weatherResult = res.data;
-                    }, function error(err) {
-                        console.log(err);
-                    });
+                var API_KEY = data.API_KEY;
+                forecast.fetch($scope.city, $scope.days, API_KEY).then(function(data) {
+                    $scope.weatherResult = data;
+                });
             });
 
 
