@@ -3,8 +3,9 @@
 
     angular
         .module('weatherApp', ['ngRoute'])
-        .config(['$routeProvider'], config);
-
+        .config(config);
+    
+    config.$inject = ['$routeProvider'];
     function config($routeProvider) {
         $routeProvider
             .when('/', {
