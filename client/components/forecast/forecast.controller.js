@@ -12,7 +12,6 @@
             
             $scope.city = city.city;
             $scope.days = $routeParams.days || '2';
-            // ?q=London&cnt=7&appid=40c742d331d83b9c454e9c89a307bcc7
             config.fetch().then(function(data) {
                 $scope.API_KEY = data.API_KEY;
                 $http
